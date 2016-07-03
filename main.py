@@ -2,6 +2,10 @@ import os.path
 import sys
 import input
 import tree
+from asciitree import LeftAligned
+# asciitree package Repository:     https://github.com/mbr/asciitree
+# asciitree package documentation:  http://pythonhosted.org/asciitree/
+from collections import OrderedDict as OD
 
 # Check if input file exists
 if not os.path.isfile('input.txt'):
@@ -46,3 +50,27 @@ for task in orderedTasks:
     spentTime += task[2]
     totalCost += spentTime * task[3]
 print("Total cost = " + str(totalCost))
+
+print("Prerequisite tree:")
+
+displayTree = {}
+dependantTasks = [task for task in tasks if task[1] == "Start"]
+
+def recDraw(root):
+    childsList = [task for task in tasks if task[1] == root[0]]
+    childs = OD()
+    for child in childsList:
+        childs[child[0]] = recDraw(child[0])
+    return childs
+
+if len(dependantTasks) == 1:
+    displayTree[dependantTasks[0]] = recDraw(dependantTasks[0])
+else:
+    od = OD()
+    for task in dependantTasks:
+        od[task[0]] = recDraw(task[0])
+    displayTree = {'root': od}
+
+tr = LeftAligned()
+print tr(displayTree)
+
