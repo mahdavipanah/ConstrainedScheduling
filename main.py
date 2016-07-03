@@ -38,4 +38,11 @@ while len(orderedTasks) != len(tasks):
 
 print("Order of tasks:")
 for task in orderedTasks:
-    print('\t' + str(task[0]))
+    print(str(task[0]))
+
+totalCost = 0
+spentTime = 0
+for task in orderedTasks:
+    spentTime += task[2]
+    totalCost += spentTime * task[3]
+print("Total cost = " + str(totalCost))
