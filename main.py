@@ -35,3 +35,7 @@ while len(orderedTasks) != len(tasks):
     for task in tree[minTask[0]]:
         task = [t for t in tasks if t[0] == task][0]
         availableTasks.append(task)
+
+print("Order of tasks:")
+for task in orderedTasks:
+    print('\t' + str(task[0]))
