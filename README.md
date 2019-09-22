@@ -1,5 +1,5 @@
-# Problem's describtion
-![Problem's describtion](https://gitlab.com/mahdavipanah/ConstrainedScheduling/raw/4918c7e654d4d8ba656d97b03f5ffd8812ffc106/describtion.jpg)
+# Problem's description
+![Problem's description](./description.jpg)
 
 
 # Input rules
